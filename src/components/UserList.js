@@ -10,13 +10,16 @@ const UserList = () => {
         .then(response => response.json())
         .then(data => setUsers(data.results))
         .catch(error => console.log('Hubo un error ' + error))
+        .finally(console.log(users))
     }, [])
+
+
   return (
     <div className='body'>
          <h1>Listado: </h1>
          <div className='cartas'>
         {
-        users.map((user, index) => <Carta nombre={`${user.name.first} ${user.name.last}`} key={index} img={user.picture.large} texto={user.gender} edad={user.dob.age}/>)
+        users.map((user, index) => <Carta nombre={`${user.name.first} ${user.name.last}`} key={index} img={user.picture.large} texto={user.gender} edad={user.dob.age} location={user.location} mail={user.email}/>)
         }
         </div>
     </div>

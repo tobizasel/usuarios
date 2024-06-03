@@ -1,3 +1,9 @@
+.App{
+  text-align: center;
+}
+
 .cartas{
   display: flex;
+  text-align: center;
+  justify-content: space-evenly;
 }

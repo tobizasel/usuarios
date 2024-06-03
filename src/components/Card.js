@@ -3,13 +3,14 @@ import Card from 'react-bootstrap/Card';
 import Modal from 'react-bootstrap/Modal';
 import { useState } from 'react';
 
-function Carta({nombre, img, texto, edad}) {
+function Carta({nombre, img, texto, edad, location, mail}) {
 
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    
+
+
 
   return (
     <>
@@ -20,7 +21,7 @@ function Carta({nombre, img, texto, edad}) {
         <Card.Text>
           {texto}
         </Card.Text>
-        <Button variant="primary" onClick={handleShow}>Go somewhere</Button>
+        <Button variant="info" onClick={handleShow}>Informacion</Button>
       </Card.Body>
     </Card>
     
@@ -29,8 +30,10 @@ function Carta({nombre, img, texto, edad}) {
           <Modal.Title>{nombre}</Modal.Title>
         </Modal.Header>
         <Modal.Body>{edad}</Modal.Body>
+        <Modal.Body>{location.city}, {location.country}</Modal.Body>
+        <Modal.Body>{mail}</Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="danger" onClick={handleClose}>
             Close
           </Button>
         </Modal.Footer>
